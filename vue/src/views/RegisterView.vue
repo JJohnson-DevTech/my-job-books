@@ -22,6 +22,10 @@
         <input type="text" id="email" v-model="user.email" required autofocus />
       </div>
       <div class="form-input-group">
+        <label for="number">Number</label>
+        <input type="text" id="number" v-model="user.number"  placeholder="Optional" />
+      </div>
+      <div class="form-input-group">
         <label for="password">Password</label>
         <input type="password" id="password" v-model="user.password" required />
       </div>

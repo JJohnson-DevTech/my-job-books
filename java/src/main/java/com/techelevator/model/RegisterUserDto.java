@@ -17,6 +17,8 @@ public class RegisterUserDto {
     private String lastName;
     @NotEmpty
     private String email;
+
+    private String number;
     @NotEmpty
     private String password;
     @NotEmpty
@@ -26,6 +28,14 @@ public class RegisterUserDto {
 
     public String getUsername() {
         return username;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public String getFirstName() {
