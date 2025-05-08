@@ -32,6 +32,9 @@ export default {
     return {
       user: {
         username: "",
+        firstName: "",
+        lastName: "" ,
+        email: "",
         password: ""
       },
       invalidCredentials: false
