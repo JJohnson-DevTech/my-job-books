@@ -13,6 +13,7 @@ public class User {
    private String firstName;
    private String lastName;
    private String email;
+   private String number;
    @JsonIgnore
    private String password;
    @JsonIgnore
@@ -21,15 +22,24 @@ public class User {
 
    public User() { }
 
-   public User(int id, String username,String firstName, String lastName, String email, String password, String authorities) {
+   public User(int id, String username, String firstName, String lastName, String email, String number, String password, boolean activated, Set<Authority> authorities) {
       this.id = id;
       this.username = username;
       this.firstName = firstName;
       this.lastName = lastName;
       this.email = email;
+      this.number = number;
       this.password = password;
-      if (authorities != null) this.setAuthorities(authorities);
-      this.activated = true;
+      this.activated = activated;
+      this.authorities = authorities;
+   }
+
+   public String getNumber() {
+      return number;
+   }
+
+   public void setNumber(String number) {
+      this.number = number;
    }
 
    public int getId() {
