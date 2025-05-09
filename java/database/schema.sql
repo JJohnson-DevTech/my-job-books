@@ -17,7 +17,7 @@ CREATE TABLE jobs (
 	job_id SERIAL PRIMARY KEY,
 	title VARCHAR(50) NOT NULL,
 	customer_name VARCHAR(50) NOT NULL,
-	customer_email varchar(50) NOT NULL UNIQUE,
+	customer_email varchar(50) NOT NULL,
 	customer_number VARCHAR(50),
 	location VARCHAR(100) NOT NULL,
 	job_date TIMESTAMP NOT NULL,

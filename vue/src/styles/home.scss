@@ -17,29 +17,3 @@ h2 {
     margin-left: 10%;
 }
 
-.job-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 2rem;
-}
-
-.job-card {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 1rem;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  
-    .job-name {
-      font-weight: bold;
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-  
-    .job-service,
-    .job-date {
-      font-size: 1rem;
-      margin: 0.2rem 0;
-    }
-  }

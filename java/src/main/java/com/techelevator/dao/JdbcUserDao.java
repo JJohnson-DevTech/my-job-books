@@ -71,6 +71,22 @@ public class JdbcUserDao implements UserDao {
         }
         return user;
     }
+    @Override
+    public Integer getUserIdByUsername(String username) {
+        if (username == null) throw new IllegalArgumentException("username cannot be null");
+        User user = null;
+        String sql = "SELECT user_id FROM users WHERE username = LOWER(TRIM(?));";
+        try {
+            return jdbcTemplate.queryForObject(sql, Integer.class, username);
+
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }
+
+    }
+
+
+
 
     @Override
     public User createUser(RegisterUserDto user) {
