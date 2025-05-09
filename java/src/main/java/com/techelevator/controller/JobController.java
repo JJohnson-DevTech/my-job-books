@@ -26,6 +26,8 @@ public class JobController {
     public Job createJob(@RequestBody NewJobDto newJobDto){
         return jobsDao.createJob(newJobDto);
     }
+
+
     @GetMapping(path = "/get-jobs")
     public List<Job> getJobsByUserId(Principal principal) {
         try {

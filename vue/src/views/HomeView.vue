@@ -7,18 +7,18 @@
       calendar view.
     </p>
   </div>
-  <div class="job-list-container">
-    <h2>My Jobs</h2>
-    <div class="job-card" v-for="job in jobs" :key="job.id">
-      <p class="job-name">{{ job.name }}</p>
-      <p class="job-service">Service: {{ job.service }}</p>
-      <p class="job-date">Date: {{ job.date }}</p>
-    </div>
-  </div>
+ 
+
+  <job-list/> 
+
+
 </template>
 
 <script>
+import JobList from '../components/JobList.vue';
+
 export default {
+  components: { JobList },
   data() {
     return {
       jobs: [

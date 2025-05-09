@@ -7,6 +7,7 @@ import com.techelevator.model.*;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
@@ -67,6 +68,19 @@ public class AuthenticationController {
         }
         catch (DaoException e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "User registration failed.");
+        }
+    }
+    @GetMapping(path = "/get-user-id/{username}")
+    public Integer getUserIdByUsername(@PathVariable String username) {
+        try {
+            Integer userId = userDao.getUserIdByUsername(username);
+            return userId;
+        } catch (DaoException e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error retrieving data", e);
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        } catch (Exception e) {
+            throw new DaoException("Error while receiving teacherId", e);
         }
     }
 
