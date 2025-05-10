@@ -6,6 +6,7 @@ import com.techelevator.exception.DaoException;
 import com.techelevator.model.Job;
 import com.techelevator.dto.NewJobDto;
 import com.techelevator.model.User;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +28,7 @@ public class JobController {
         return jobsDao.createJob(newJobDto);
     }
     @PutMapping(path = "/edit-job")
-    public void editJob (@RequestBody Job jobToEdit) {
+    public void editJob (@RequestBody @Valid Job jobToEdit) {
         try {
             jobsDao.updateJob(jobToEdit);
         } catch (IllegalArgumentException | DaoException e) {
