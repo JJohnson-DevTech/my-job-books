@@ -9,6 +9,7 @@ import RegisterView from '../views/RegisterView.vue';
 import addJob from "../components/addJob.vue";
 import JobList from '../components/JobList.vue';
 import JobView from '../views/JobView.vue';
+import editJob from '../components/editJob.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -31,6 +32,14 @@ const routes = [
     path: '/add-job',
     name: 'addJob',
     component: addJob,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/edit-job/:id',
+    name: 'editJob',
+    component: editJob,
     meta: {
       requiresAuth: true
     }

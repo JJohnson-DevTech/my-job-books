@@ -9,6 +9,10 @@ export default {
   createJob(jobObject) {
     return axios.post('/create-job', jobObject)
   },
+  editJob(jobObject) {
+    return axios.put('/edit-job', jobObject)
+  },
+
 
   getJobs() {
     return axios.get("/get-jobs");

@@ -10,7 +10,7 @@
 
 
         <div class="form-group">
-          <label for="jobName">Your Name:</label>
+          <label for="jobName">Name:</label>
           <input v-model="job.name" id="jobName" type="text" required placeholder="Enter customers name" />
         </div>
    <br>
