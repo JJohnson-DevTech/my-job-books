@@ -1,4 +1,4 @@
-package com.techelevator.model;
+package com.techelevator.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

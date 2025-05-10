@@ -16,5 +16,8 @@ export default {
 getUserId(username) {
     return axios.get(`/get-user-id/${username}`);
   },
+  getJobById(jobId) {
+    return axios.get(`/get-job/${jobId}`);
+  },
 
 }

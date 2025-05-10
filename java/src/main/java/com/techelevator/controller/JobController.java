@@ -4,7 +4,7 @@ import com.techelevator.dao.JobsDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.Job;
-import com.techelevator.model.NewJobDto;
+import com.techelevator.dto.NewJobDto;
 import com.techelevator.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,6 +25,23 @@ public class JobController {
     @PostMapping(path = "/create-job")
     public Job createJob(@RequestBody NewJobDto newJobDto){
         return jobsDao.createJob(newJobDto);
+    }
+    @PutMapping(path = "/edit-job")
+    public void editJob (@RequestBody Job jobToEdit) {
+        try {
+            jobsDao.updateJob(jobToEdit);
+        } catch (IllegalArgumentException | DaoException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request");
+        }
+    }
+
+    @GetMapping(path = "get-job/{jobId}")
+    public  Job getJobByJobId (@PathVariable ("jobId") int jobId){
+        try {
+            return jobsDao.getJobByJobId(jobId);
+        } catch (DaoException e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error retrieving data", e);
+        }
     }
 
 
